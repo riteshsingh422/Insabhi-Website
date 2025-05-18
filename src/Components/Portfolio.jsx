@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './Product.css';
+import './Portfolio.css';
 
 const Portfolio = () => {
   const sectionRef = useRef(null);
@@ -44,12 +44,12 @@ const Portfolio = () => {
   }, []);
 
   const portfolioData = [
-    { src: '/img/proj1.png', href: 'https://www.bellabathwares.com/', name: 'Bella' },
-    { src: '/img/proj2.png', href: 'https://chillopositefestival.com/', name: 'Chilloposite Festival' },
-    { src: '/img/proj3.png', href: 'https://falcann.com/', name: 'Falcann' },
-    { src: '/img/proj4.png', href: 'https://archisesto.com/', name: 'Archisesto' },
-    { src: '/img/proj5.png', href: 'https://starkengineering.in/', name: 'Stark Engineering Pvt. Ltd' },
-    { src: '/img/proj6.png', href: 'https://mexstarch.com/', name: 'Mex Starch' },
+    { src: '/img/proj1.webp', href: 'https://www.bellabathwares.com/', name: 'Bella' },
+    { src: '/img/proj2.webp', href: 'https://chillopositefestival.com/', name: 'Chilloposite Festival' },
+    { src: '/img/proj3.webp', href: 'https://falcann.com/', name: 'Falcann' },
+    { src: '/img/proj4.webp', href: 'https://archisesto.com/', name: 'Archisesto' },
+    { src: '/img/proj5.webp', href: 'https://starkengineering.in/', name: 'Stark Engineering Pvt. Ltd' },
+    { src: '/img/proj6.webp', href: 'https://mexstarch.com/', name: 'Mex Starch' },
   ];
 
   return (

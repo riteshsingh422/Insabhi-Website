@@ -5,13 +5,14 @@ import Carousel from './Components/Carousel';
 import Feature from './Components/Feature';
 import About from './Components/About';
 import Service from './Components/Service';
-import Product from './Components/Product';
+import Product from './Components/Portfolio';
 import Testimonial from './Components/Testimonial';
 import Gallery from './Components/Gallery';
 import Footer from './Components/Footer';
 import ContactUs from './Components/ContactUs';
 import Loader from './Components/Loader';
 import 'animate.css';
+import Portfolio from './Components/Portfolio';
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -54,7 +55,7 @@ const Home = () => {
           <div ref={serviceRef} id="service">
             <Service />
           </div>
-          <Product />
+          <Portfolio />
           <Testimonial />
           <div id="gallery">
             <Gallery />
