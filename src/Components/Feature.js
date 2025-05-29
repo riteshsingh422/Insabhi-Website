@@ -42,7 +42,7 @@ const Feature = () => {
       <div className="container py-5">
         <div className="text-center mx-auto pb-5" style={{ maxWidth: '800px' }}>
           <h4 className="text-uppercase mb-3" style={{ color: '#ffe600' }}>
-            Why Choose <span style={{ color: 'red' }}>INSABHI</span>
+          Get to Know <span style={{ color: 'red' }}>INSABHI</span>
           </h4>
           <h1 className="display-4 text-capitalize mb-4">
             Trusted Excellence in IT Solutions

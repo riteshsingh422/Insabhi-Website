@@ -5,12 +5,12 @@ const images = [
   '/img/img1.jpeg',
   '/img/img2.jpeg',
   '/img/img3.jpeg',
-  '/img/img4.jpeg',
+  '/img/img4.jpg',
   '/img/img5.jpeg',
   '/img/img6.jpg',
   '/img/img7.jpg',
-  '/img/img4.jpeg',
-  '/img/img2.jpeg'
+  '/img/img2.jpeg',
+  '/img/img1.jpeg',
 ];
 
 const Gallery = () => {

@@ -7,6 +7,9 @@ const Testimonial = () => {
   const carouselRef = useRef(null);
   const cardsContainerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  // State to track touch coordinates for swipe detection
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   const testimonialData = [
     {
@@ -59,6 +62,7 @@ const Testimonial = () => {
     };
   };
 
+  // Initialize card animations (runs once on mount)
   useEffect(() => {
     const cardsContainer = cardsContainerRef.current;
 
@@ -84,7 +88,54 @@ const Testimonial = () => {
         currentCard.removeEventListener('pointerout', () => {});
       }
     };
-  }, []);
+  }, []); // Empty dependency array to run only on mount
+
+  // Handle swipe functionality
+  useEffect(() => {
+    const cardsContainer = cardsContainerRef.current;
+
+    const handleTouchStart = (e) => {
+      e.preventDefault(); // Prevent default scrolling
+      touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+      e.preventDefault(); // Prevent default scrolling
+      touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+      if (touchStartX.current !== null && touchEndX.current !== null) {
+        const diffX = touchStartX.current - touchEndX.current;
+        const swipeThreshold = 50; // Minimum swipe distance to trigger a change
+
+        if (Math.abs(diffX) > swipeThreshold) {
+          if (diffX > 0) {
+            // Swipe left: go to next card
+            const nextIndex = (activeIndex + 1) % testimonialData.length;
+            handleCardClick(nextIndex);
+          } else {
+            // Swipe right: go to previous card
+            const prevIndex = (activeIndex - 1 + testimonialData.length) % testimonialData.length;
+            handleCardClick(prevIndex);
+          }
+        }
+      }
+      // Reset touch coordinates
+      touchStartX.current = null;
+      touchEndX.current = null;
+    };
+
+    cardsContainer.addEventListener('touchstart', handleTouchStart);
+    cardsContainer.addEventListener('touchmove', handleTouchMove);
+    cardsContainer.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      cardsContainer.removeEventListener('touchstart', handleTouchStart);
+      cardsContainer.removeEventListener('touchmove', handleTouchMove);
+      cardsContainer.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [activeIndex]); // Dependency on activeIndex for swipe updates
 
   const handleCardClick = (index) => {
     setActiveIndex(index);
@@ -106,7 +157,7 @@ const Testimonial = () => {
     });
 
     // Set current card and background image
-    currentCard.classList.add('current--card');
+    currentCard.classNameList.add('current--card');
     bgImages[index].classList.add('current--image');
 
     // Set previous and next cards and background images

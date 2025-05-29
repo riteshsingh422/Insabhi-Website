@@ -48,7 +48,12 @@ const Navbar = ({ scrollToAbout, scrollToService, scrollToContact }) => {
 
         <BootstrapNavbar.Collapse id="navbarCollapse">
           <Nav className="ms-auto py-0">
-            <Nav.Link href="/" active className="nav-link-custom nav-link-animate">
+            <Nav.Link
+              href="/"
+              active
+              className="nav-link-custom nav-link-animate"
+              onClick={() => setIsOpen(false)} // Added to close menu
+            >
               Home
             </Nav.Link>
             <Nav.Link
@@ -76,7 +81,7 @@ const Navbar = ({ scrollToAbout, scrollToService, scrollToContact }) => {
             <Nav.Link
               href="#gallery"
               className="nav-link-custom nav-link-animate"
-              onClick={() => setIsOpen(false)}
+              onClick={() => setIsOpen(false)} // Added to close menu
             >
               Gallery
             </Nav.Link>
