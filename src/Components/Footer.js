@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="container-fluid footer py-2 wow fadeIn" data-wow-delay="0.2s">
+    <div className="container-fluid footer py-2">
       <div className="container py-2">
         {/* Footer Content with Flex Layout */}
         <div className="footer-content">

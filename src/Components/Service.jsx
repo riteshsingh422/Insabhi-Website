@@ -17,7 +17,7 @@ const Service = () => {
 
   const technologies = [
     { name: 'Web Development', image: 'https://miro.medium.com/v2/resize:fit:1200/1*V-Jp13LvtVc2IiY2fp4qYw.jpeg' },
-    { name: 'Odoo Development', image: 'https://www.magictechnolabs.com/assets/images/odoo.webp' },
+    { name: 'Odoo Development', image: 'https://5.imimg.com/data5/SELLER/Default/2023/7/330284633/YR/JR/ED/131208625/odoo-crm-software.png' },
     { name: 'DevOps', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVPOHDgzU8JVZ9d0qgeBzuOM1-uCCIl7dhCFOa-m5ILfb-_7PSg3FD2ORMNu1PJLkehhA&usqp=CAU' },
     { name: 'App Development', image: 'https://thecustomizewindows.cachefly.net/wp-content/uploads/2024/10/An-Overview-of-App-Development-Project-Management.png' },
     { name: 'Artificial Intelligence', image: 'https://urbeuniversity.edu/post_assets/Le9zsr8bQmv7gmZW40UXiVaPsGcpVwaY65mw28tU.webp' },
