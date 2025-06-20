@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-## Live Link:- https://insabhi.com/
+## Live Link:- https://insabhi.netlify.app/
 
 In the project directory, you can run:
 
