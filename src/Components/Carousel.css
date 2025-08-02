@@ -1,0 +1,381 @@
+/* Ensure global box-sizing and prevent horizontal overflow */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling on the entire page */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Carousel Header */
+.carousel-header {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #1a1a1a;
+}
+
+.carousel-header .carousel {
+  height: 100vh;
+  background-color: #1a1a1a;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.carousel-header .carousel-inner {
+  height: 100vh;
+  background-color: #1a1a1a;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.carousel-header .carousel-item {
+  height: 100vh;
+  background-color: #1a1a1a;
+  transition: transform 0.6s ease-in-out;
+  will-change: transform;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.carousel-header .carousel-item img {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  filter: brightness(40%);
+  display: block;
+}
+
+.carousel-header .carousel-item.active,
+.carousel-header .carousel-item-next,
+.carousel-header .carousel-item-prev {
+  display: block;
+}
+
+/* Ensure slide-from-right effect */
+.carousel-header .carousel-item-right.active,
+.carousel-header .carousel-item-next {
+  transform: translateX(0);
+}
+
+.carousel-header .carousel-item-left.active,
+.carousel-header .carousel-item-prev {
+  transform: translateX(0);
+}
+
+.carousel-header .carousel-item-right,
+.carousel-header .carousel-item-next.carousel-item-left {
+  transform: translateX(100%);
+}
+
+.carousel-header .carousel-item-left,
+.carousel-header .carousel-item-prev.carousel-item-right {
+  transform: translateX(-100%);
+}
+
+.carousel-header .carousel-caption-custom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 100vw;
+  opacity: 1;
+  z-index: 10;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.carousel-caption-content {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
+}
+
+.carousel-caption-content h4 {
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Removed -webkit-text-stroke and text-stroke */
+}
+
+.carousel-caption-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  white-space: normal;
+}
+
+.carousel-caption-content p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption-content-btn .btn {
+  background-color: #0d6efd;
+  color: #fff;
+  border: 1px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.carousel-caption-content-btn .btn:hover {
+  background-color: #0d6efd;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-indicators {
+  bottom: 20px;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0 6px;
+}
+
+.carousel-indicators .active {
+  background-color: #007bff;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  font-size: 2rem;
+  color: #fff;
+  background: none;
+}
+
+/* Popup Modal Styles */
+.custom-login-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.custom-login-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.popup-close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.custom-login-content h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.custom-login-content .form-group {
+  margin-bottom: 15px;
+}
+
+.custom-login-content .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.custom-login-content .form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.custom-login-content button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-login-content button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-link span {
+  color: #0d6efd;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 767.98px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .carousel-header {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .carousel-header .carousel,
+  .carousel-header .carousel-inner,
+  .carousel-header .carousel-item {
+    height: 80vh;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .carousel-caption-custom {
+    min-height: 350px;
+    width: 100%;
+    padding: 0 10px;
+    max-width: 100vw;
+  }
+
+  .carousel-caption-content {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .carousel-caption-content h4 {
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* Removed -webkit-text-stroke and text-stroke */
+  }
+
+  .carousel-caption-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .carousel-caption-content p {
+    font-size: 1rem;
+  }
+
+  .carousel-caption-content-btn .btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Media Query for Larger Screens (Laptops and Desktops) */
+@media (min-width: 768px) {
+  .carousel-caption-content {
+    max-width: 1200px;
+    width: 85%;
+  }
+
+  .carousel-caption-content h1 {
+    font-size: 4.5rem;
+  }
+
+  .carousel-caption-content p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Animations for Slide Content */
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-from-top {
+  animation: slideFromTop 1s ease-out forwards;
+}
+
+.slide-from-bottom {
+  animation: slideFromBottom 1s ease-out forwards;
+}

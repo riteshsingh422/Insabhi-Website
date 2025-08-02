@@ -1,0 +1,138 @@
+.portfolio {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: all 0.5s ease-in-out;
+  overflow: visible !important;
+}
+
+.portfolio.fadeInSection {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.portfolio .portfolio-item {
+  border: 2px solid rgba(196, 211, 211, 0.5);
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: box-shadow 0.3s ease, transform 0.5s ease;
+}
+
+.portfolio .portfolio-item.slideInTop {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.portfolio .portfolio-item:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.portfolio .portfolio-image {
+  display: block !important;
+  visibility: visible !important;
+  width: 100%;
+  height: auto;
+  min-height: 140px;
+  max-height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.portfolio .portfolio-item:hover .portfolio-image {
+  transform: scale(1.05);
+}
+
+.portfolio .portfolio-content {
+  padding: 15px;
+}
+
+.portfolio .project-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.portfolio .project-name:hover {
+  color: #3498db;
+}
+
+.portfolio .wow {
+  visibility: visible !important;
+}
+
+.portfolio .text-center {
+  padding-bottom: 40px;
+}
+
+.portfolio .text-uppercase {
+  color: rgb(255, 230, 0);
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.portfolio .display-3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+  .portfolio {
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 30px 15px;
+  }
+
+  .portfolio .display-3 {
+    font-size: 1.8rem;
+  }
+
+  .portfolio .portfolio-item {
+    opacity: 1 !important;
+    transform: none !important;
+    margin-bottom: 30px;
+    transition: none;
+  }
+
+  .portfolio .portfolio-item.slideInTop {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .portfolio .portfolio-image {
+    display: block !important;
+    visibility: visible !important;
+    height: auto;
+    min-height: 140px;
+    max-height: 200px;
+    object-fit: cover;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .portfolio .portfolio-content {
+    padding: 10px;
+  }
+
+  .portfolio .project-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .portfolio .display-3 {
+    font-size: 2.5rem;
+  }
+}

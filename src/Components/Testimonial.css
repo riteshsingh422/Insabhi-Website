@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
+
+:root {
+  --card-width: 300px;
+  --card-height: 400px;
+  --card-transition-duration: 600ms;
+  --card-transition-easing: ease;
+  --primary-accent: #0d6efd; /* Blue accent for borders and effects */
+  --secondary-accent: #00c4b4; /* Teal accent for active states */
+}
+
+/* General styling for the testimonial section */
+.testimonial {
+  background: linear-gradient(180deg, #ffffff, #f0f4f8);
+  position: relative;
+  padding: 60px 0;
+  overflow: hidden;
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Top glow effect to enhance section separation */
+.testimonial::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(13, 110, 253, 0.1), transparent);
+  z-index: 2;
+}
+
+/* Wave background effect */
+.testimonial::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(13,110,253,0.1)" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,181.3C960,203,1056,213,1152,213.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+  background-size: cover;
+  z-index: 1;
+}
+
+/* Background images container */
+.testimonial__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.testimonial__bg::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.testimonial__bg__image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateX(var(--image-translate-offset, 0));
+  width: 180%;
+  height: 180%;
+  transition: transform 1000ms ease, opacity 1000ms ease;
+  overflow: hidden;
+}
+
+.testimonial__bg__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial__bg__image.current--image {
+  opacity: 1;
+  --image-translate-offset: 0;
+}
+
+.testimonial__bg__image.previous--image,
+.testimonial__bg__image.next--image {
+  opacity: 0;
+}
+
+.testimonial__bg__image.previous--image {
+  --image-translate-offset: -25%;
+}
+
+.testimonial__bg__image.next--image {
+  --image-translate-offset: 25%;
+}
+
+/* Header styling */
+.testimonial .text-center {
+  padding-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial .text-uppercase {
+  color: rgb(255, 230, 0);
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial .display-3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #1a2a44;
+  line-height: 1.3;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* App container */
+.app {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card list */
+.cardList {
+  position: absolute;
+  width: calc(3 * var(--card-width));
+  height: auto;
+}
+
+.cards__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.card {
+  --card-translateY-offset: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateX(var(--card-translateX-offset)) translateY(var(--card-translateY-offset)) rotateY(var(--card-rotation-offset)) scale(var(--card-scale-offset));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--card-width);
+  height: var(--card-height);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%); /* Subtle gradient */
+  border: 1px solid var(--primary-accent); /* Blue border */
+  border-radius: 20px; /* Slightly more rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(13, 110, 253, 0.2); /* Enhanced shadow with glow */
+  transition: transform var(--card-transition-duration) var(--card-transition-easing), box-shadow 300ms ease, scale 300ms ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 15px rgba(13, 110, 253, 0.3); /* Stronger shadow and glow on hover */
+  transform: translate(-50%, -50%) translateX(var(--card-translateX-offset)) translateY(var(--card-translateY-offset)) rotateY(var(--card-rotation-offset)) scale(var(--card-scale-offset)) scale(1.02); /* Slight scale on hover */
+}
+
+.card__content {
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.card__dp {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-accent); /* Matching blue border */
+  margin-bottom: 10px;
+  object-fit: cover;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.card__dp:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.3); /* Glow effect on hover */
+}
+
+.card .text {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(var(--card-width) * var(--text-size-offset, 0.08));
+  white-space: normal;
+  color: #2a3b55; /* Slightly darker for contrast */
+  width: fit-content;
+}
+
+.card .name {
+  text-transform: uppercase;
+  color: #1a2a44;
+  font-weight: 700;
+  font-size: calc(var(--card-width) * 0.09);
+  margin-bottom: 5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.card .profession {
+  text-transform: uppercase;
+  color: #1a2a44;
+  font-weight: 600;
+  font-size: calc(var(--card-width) * 0.06);
+  margin-bottom: 8px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card .review {
+  font-weight: 400;
+  font-size: calc(var(--card-width) * 0.05);
+  max-width: 260px;
+  color: #4a5b75; /* Slightly lighter but contrasting */
+  flex-grow: 1;
+  overflow-y: auto;
+  line-height: 1.4;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Ensure the review text doesn't overflow the card */
+.card .review::-webkit-scrollbar {
+  width: 4px;
+}
+
+.card .review::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.card .review::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card.current--card {
+  --current-card-rotation-offset: 0;
+  --card-translateX-offset: 0;
+  --card-rotation-offset: var(--current-card-rotation-offset);
+  --card-scale-offset: 1.1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(13, 110, 253, 0.3);
+  z-index: 50;
+}
+
+.card.previous--card {
+  --card-translateX-offset: calc(-1 * var(--card-width) * 1.1);
+  --card-rotation-offset: 10deg;
+}
+
+.card.next--card {
+  --card-translateX-offset: calc(var(--card-width) * 1.1);
+  --card-rotation-offset: -10deg;
+}
+
+.card.previous--card,
+.card.next--card {
+  --card-scale-offset: 0.95;
+  opacity: 0.9;
+  z-index: 20;
+}
+
+/* Carousel dots styling */
+.testimonial .carousel-indicators {
+  bottom: -50px;
+  z-index: 2;
+}
+
+.testimonial .carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-accent);
+  border: 2px solid #ffffff;
+  margin: 0 8px;
+  transition: all 0.3s ease;
+}
+
+.testimonial .carousel-indicators .active {
+  background-color: var(--secondary-accent);
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 10px rgba(0, 196, 180, 0.6);
+}
+
+/* Smooth slide transition */
+.testimonial .carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Fade-in animation */
+.testimonial .fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 767.98px) {
+  .testimonial {
+    padding: 20px 0 10px 0;
+  }
+
+  .testimonial .display-3 {
+    font-size: 3rem;
+  }
+
+  .testimonial .text-uppercase {
+    font-size: 1.3rem;
+  }
+
+  .card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%); /* Same gradient on mobile */
+    border: 1px solid var(--primary-accent);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 8px rgba(13, 110, 253, 0.2); /* Slightly smaller shadow for mobile */
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 12px rgba(13, 110, 253, 0.3);
+  }
+
+  .card .text {
+    font-size: calc(var(--card-width) * var(--text-size-offset, 0.07));
+  }
+
+  .card .name {
+    font-size: calc(var(--card-width) * 0.08);
+    margin-bottom: 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .card .profession {
+    font-size: calc(var(--card-width) * 0.05);
+    margin-bottom: 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .card .review {
+    font-size: calc(var(--card-width) * 0.05);
+    max-width: 170px;
+    line-height: 1.5;
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-height: 120px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .card__dp {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-accent);
+  }
+
+  .card__content {
+    padding: 8px;
+  }
+
+  :root {
+    --card-width: 180px;
+    --card-height: 280px;
+  }
+
+  .app {
+    height: 280px;
+  }
+
+  .testimonial .carousel-indicators {
+    bottom: -30px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .testimonial .display-3 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width: 800px) {
+  :root {
+    --card-width: 300px;
+    --card-height: 400px;
+  }
+}
